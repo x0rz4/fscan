@@ -14,14 +14,14 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: "Check out code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: "Set up Go"
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: 1.21.x
+          go-version: 1.22.x
       -
         name: Install UPX
         uses: crazy-max/ghaction-upx@v3
@@ -33,7 +33,7 @@ jobs:
 
       -
         name: "Create release on GitHub"
-        uses: goreleaser/goreleaser-action@v4
+        uses: goreleaser/goreleaser-action@v5
         with:
           distribution: goreleaser
           version: latest
